@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<div class="container">
+    <form action="/recipes" method="POST">
+        <div style="width:30%; margin: 0 auto;">
+            <h3 style="text-align: center; margin-top:10px;">Add A  New Recipe</h3>
+            <div class="form-group">
+                <label for="name">Recipe's Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter Your Recipe's Name" required>
+              </div>
+              <div class="form-group">
+                  <label for="name">Recipe's Image</label>
+                  <input type="text" name="image" class="form-control" placeholder="Image URL" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Tell Us About Your Recipe</label>
+                  <textarea name="description" style="resize:none;" class="form-control" id="exampleFormControlTextarea1" rows="8" required></textarea>
+                </div>
+              <button type="submit" class="btn btn-primary btn-block">Submit!</button>
+              <p></p>
+              <a href="/recipes">View All Recipe</a>
+        </div>
+        
+      </form>
+</div>
+
+<% include ../partials/footer %>
+

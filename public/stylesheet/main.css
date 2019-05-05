@@ -1,0 +1,13 @@
+.btn{
+    font-size: 15px;
+    padding: 3px;
+    
+}
+#comment-btn{
+    display: inline;
+}
+
+.comment{
+    margin: 0;
+}
+

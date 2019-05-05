@@ -1,0 +1,92 @@
+<% include partials/header %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+</head>
+
+</body>
+
+</html>
+
+<body>
+    <div id="landing-header" class="container">
+        
+        <div class="slideshow">
+                <!-- <div class="header-text">
+                        <h1>Welcome To Olobe</h1>
+                        <a class="btn btn-lg btn-primary" href="recipes">Explore</a>
+                </div> -->
+                <img class="mySlides" src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=cuisine-delicious-dinner-958545.jpg&fm=jpg" alt="">
+                <img class="mySlides" src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?cs=srgb&dl=burger-chips-dinner-70497.jpg&fm=jpg" alt="">
+                <img class="mySlides" src="https://o.aolcdn.com/images/dims3/GLOB/crop/7216x4733+0+281/resize/1028x675!/format/jpg/quality/85/http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2Ff399350347cf76a6e1045da718c853ff%2F205833374%2Fholiday-turkey-dinner-picture-id836012728" alt="">
+        </div>
+    </div> 
+ 
+
+
+
+
+
+
+
+
+<% include partials/footer %>  
+</body>
+
+<style>
+    
+
+.slideshow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 1;
+    left: 0;
+    bottom:4;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    animation: imageAnimation 50s linear infinite;
+}
+
+
+
+
+ .slideshow img {
+    width: 100%;
+    height: 100%;
+    animation: imageAnimation 50s linear infinite;
+} 
+
+/* #landing-header {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding-top: 40vh;
+} */
+
+</style>
+
+<script>
+        var myIndex = 0;
+        carousel();
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 3000); // Change image every 2 seconds
+        }
+        </script>

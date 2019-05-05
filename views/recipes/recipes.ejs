@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <header style="margin-top: 5px; background-image:url('https://cdn.firstcrycdn.com/2018/03/446808145-H.jpg'); background-size:cover; color:blanchedalmond;" class="jumbotron">
+        <div class="container">
+            <h1>All Recipes</h1>
+            <p>this is the expolore page</p>
+            <P>
+                <a class="btn btn-primary btn-large" href="recipes/new">Add New Recipe</a>
+            </P>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <%recipes.forEach((recipe)=>{%>
+                
+            <div class="grid card" style="width: 15rem; display:flex; flex-wrap: wrap; flex-grow: 1; flex-direction: row; margin:5px;">
+                <div class="col-md-3 col-sm-6">
+                    <img style="width: 13rem;" src="<%=recipe.image%>" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%=recipe.name%></h5>
+                    <p class="card-text"><%=recipe.description.substring(0,100);%>...</p>
+                    <a href="recipes/<%=recipe._id%>" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+            <%});%>
+        </div> 
+    </div>
+    
+</div>
+
+
+
+<% include ../partials/footer %>

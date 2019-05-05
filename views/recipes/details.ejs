@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Olobe</p>
+                <ul class="list-group">
+                        <li class="list-group-item active">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <img class="img-thumbnail img-fluid" style="max-width:100%; height:auto;" src="<%=recipe.image%>" />
+                <div class="card-body">
+                    <h4 class="card-title"><a href="/"><%=recipe.name%></a></h4>
+                    <p class="card-text"><%=recipe.description%></p>
+                    <p><em>Submitted By <%=recipe.author.username%></em></p>
+                    <%if(currentUser && recipe.author.id.equals(currentUser._id)){%>
+                        <a class="btn btn-warning" href="/recipes/<%=recipe._id%>/edit">Edit</a>
+                         <form style="display:flex; float:right;" action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    <%}%>
+                    
+                </div>
+            </div>
+            <hr />
+            <div style="background-color:aquamarine; padding:10px;" class="card" style="padding: 15px;">
+                <div class="text-right">
+                        <a class="btn btn-success" href="/recipes/<%=recipe._id%>/comments/new">Leave A Review</a>
+                </div>
+                    <% recipe.comments.forEach((comment)=> { %>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <strong><%=comment.author.username%> </strong> 
+                                <span class="date" style="display:flex; float: right;";>10 days ago</span>
+                                <p class="comment">
+                                    <%=comment.text%><br />
+                                    <%if(currentUser && comment.author.id.equals(currentUser._id)){%>
+                                    <div id="comment-btn">
+                                        <a class="btn btn-sm btn-outline-warning" href="/recipes/<%=recipe._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                                        <form  style="display: inline;" action="/recipes/<%=recipe._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                            <button  class="btn btn-sm btn-outline-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                    <%}%>
+                                </p>
+                            </div>
+                        </div> 
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
